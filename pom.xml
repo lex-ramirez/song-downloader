@@ -16,6 +16,13 @@
         <maven.compiler.target>${javaVersion}</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- JAVA FX Dependencies -->
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
@@ -45,6 +52,11 @@
             <version>1.1.1</version>
         </dependency>
 
-    </dependencies>
+        <dependency>
+            <groupId>com.github.sapher</groupId>
+            <artifactId>youtubedl-java</artifactId>
+            <version>1.1</version>
+        </dependency>
 
+    </dependencies>
 </project>
