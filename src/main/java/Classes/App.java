@@ -11,7 +11,7 @@ public class App {
     public static void main(String[] args) throws YoutubeDLException {
         System.out.println("Running application...");
         YoutubeQuery newQuery = new YoutubeQuery();
-        newQuery.downloadSong("https://www.youtube.com/watch?v=gNDBFpfmO84&ab_channel=AMW");
+        newQuery.downloadSong("https://www.youtube.com/watch?v=ttG5Hz-JMbU&ab_channel=sw12");
         Main.main(args);
     }
 }

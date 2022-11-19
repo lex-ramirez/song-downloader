@@ -5,6 +5,7 @@ import com.sapher.youtubedl.YoutubeDLException;
 import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
 import com.sapher.youtubedl.mapper.VideoInfo;
+import javafx.stage.FileChooser;
 
 import java.io.File;
 

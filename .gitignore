@@ -21,3 +21,6 @@ dependency-reduced-pom.xml
 # Logs
 logs/
 *.log
+
+# COME BACK TO THIS ON DEPLOYMENT
+youtubedl-ffm/
