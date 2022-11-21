@@ -6,12 +6,62 @@ import com.sapher.youtubedl.YoutubeDLRequest;
 import com.sapher.youtubedl.YoutubeDLResponse;
 import com.sapher.youtubedl.mapper.VideoInfo;
 import javafx.stage.FileChooser;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class YoutubeQuery {
 
     public YoutubeQuery() {}
+
+    public String formatTitle(String title) {
+        return title.replace(" ", "%20");
+    }
+
+    public String findURL(String title) throws IOException, JSONException, YoutubeDLException {
+
+        // Create the API URL
+        String vidTitle = formatTitle(title);
+        String apiUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&q=" + vidTitle + "&videoDefinition=any&key=AIzaSyAhdQ4tG2ChLrzOHVHbGpr15Il1GFJ0wkA";
+
+        // Establish connection with URL
+        //URL url = new URL("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&q=not%20allowed%20sped%20up&videoDefinition=any&key=AIzaSyAhdQ4tG2ChLrzOHVHbGpr15Il1GFJ0wkA");
+        URL url = new URL(apiUrl);
+        URLConnection conn = url.openConnection();
+        conn.connect();
+
+        // We now have the data
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+        br.close();
+
+        JSONObject jsonObj = new JSONObject(sb.toString());
+        JSONObject jsonObject = jsonObj.getJSONArray("items").getJSONObject(0);
+
+        String vidId = jsonObject.getJSONObject("id").get("videoId").toString();
+        String vidChannel = jsonObject.getJSONObject("snippet").get("channelTitle").toString();
+
+        System.out.println(vidChannel);
+
+        String properUrl = "https://www.youtube.com/watch?v=" + vidId + "&ab_channel=" + formatTitle(vidChannel);
+
+        // Downloads the song
+        //downloadSong(properUrl);
+
+        return properUrl;
+    }
 
     public void downloadSong(String url) throws YoutubeDLException {
 
