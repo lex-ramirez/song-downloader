@@ -20,6 +20,6 @@ public class App {
         System.out.println(test);
 
         //newQuery.downloadSong("https://www.youtube.com/watch?v=ttG5Hz-JMbU&ab_channel=sw12");
-        //Main.main(args);
+        Main.main(args);
     }
 }
