@@ -24,20 +24,25 @@
                   <Image url="@../logo-removebg-preview.png" />
                </image>
             </ImageView>
-            <TextField layoutX="271.0" layoutY="110.0" prefHeight="38.0" prefWidth="307.0" />
+            <TextField fx:id="songName" layoutX="271.0" layoutY="110.0" prefHeight="38.0" prefWidth="307.0" />
             <Label layoutX="313.0" layoutY="74.0" prefHeight="35.0" prefWidth="224.0" text="Enter a song name">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="365.0" layoutY="442.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Download" />
-            <Label layoutX="361.0" layoutY="208.0" prefHeight="22.0" prefWidth="129.0" text="Enter a URL">
+            <Button layoutX="365.0" layoutY="442.0" mnemonicParsing="false" onAction="#downloadSong" prefHeight="30.0" prefWidth="120.0" text="Download" />
+            <Label layoutX="361.0" layoutY="177.0" prefHeight="22.0" prefWidth="129.0" text="Enter a URL">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="272.0" layoutY="243.0" prefHeight="38.0" prefWidth="307.0" />
-            <Label layoutX="271.0" layoutY="191.0" text="Or alternatively..." textFill="#868686" />
+            <TextField fx:id="urlText" layoutX="272.0" layoutY="212.0" prefHeight="38.0" prefWidth="307.0" />
+            <Label layoutX="269.0" layoutY="160.0" text="Or alternatively..." textFill="#868686" />
+            <Label fx:id="responseArea" layoutX="246.0" layoutY="289.0" prefHeight="136.0" prefWidth="359.0" style="-fx-background-color: #81c483;" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

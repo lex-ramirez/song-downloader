@@ -57,9 +57,6 @@ public class YoutubeQuery {
 
         String properUrl = "https://www.youtube.com/watch?v=" + vidId + "&ab_channel=" + formatTitle(vidChannel);
 
-        // Downloads the song
-        //downloadSong(properUrl);
-
         return properUrl;
     }
 
@@ -80,19 +77,19 @@ public class YoutubeQuery {
         // Options for command
         request.setOption("ignore-errors");		// --ignore-errors
         request.setOption("output \"%(title)s.%(ext)s\"");	// --output "%(id)s"
-        request.setOption("retries", 10);		// --retries 10
+        //request.setOption("retries", 10);		// --retries 10
         request.setOption("extract-audio");
         request.setOption("audio-format \"mp3\"");
 
         // Gets the video info of the youtube video
-        /*VideoInfo newVideo = YoutubeDL.getVideoInfo(url);
-        String vidTitle = newVideo.title;*/
+        VideoInfo newVideo = YoutubeDL.getVideoInfo(url);
+        String vidTitle = newVideo.title;
+        System.out.println(vidTitle);
 
         // Response from the YoutubeDL Query
         YoutubeDLResponse response = YoutubeDL.execute(request);
         // Print the response code(s)
         System.out.println(response.getOut());
-        System.out.println(response.getCommand());
     }
 
     /**

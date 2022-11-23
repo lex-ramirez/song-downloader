@@ -15,6 +15,7 @@ public class App {
         System.out.println("Running application...");
 
         YoutubeQuery newQuery = new YoutubeQuery();
+
         // Input Title Here
         String test = newQuery.findURL("lovers rock ");
         System.out.println(test);
