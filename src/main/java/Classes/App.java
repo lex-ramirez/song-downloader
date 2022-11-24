@@ -13,14 +13,6 @@ public class App {
      */
     public static void main(String[] args) throws YoutubeDLException, JSONException, IOException {
         System.out.println("Running application...");
-
-        YoutubeQuery newQuery = new YoutubeQuery();
-
-        // Input Title Here
-        String test = newQuery.findURL("lovers rock ");
-        System.out.println(test);
-
-        //newQuery.downloadSong("https://www.youtube.com/watch?v=ttG5Hz-JMbU&ab_channel=sw12");
         Main.main(args);
     }
 }

@@ -19,8 +19,15 @@ import java.net.URLConnection;
 
 public class YoutubeQuery {
 
+    private String vidTitle = null;
+
     public YoutubeQuery() {}
 
+    /**
+     * Formats a title to the correct format for URL
+     * @param title title of the video
+     * @return the formatted title of the video
+     */
     public String formatTitle(String title) {
         return title.replace(" ", "%20");
     }
@@ -32,7 +39,6 @@ public class YoutubeQuery {
         String apiUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&q=" + vidTitle + "&videoDefinition=any&key=AIzaSyAhdQ4tG2ChLrzOHVHbGpr15Il1GFJ0wkA";
 
         // Establish connection with URL
-        //URL url = new URL("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=relevance&q=not%20allowed%20sped%20up&videoDefinition=any&key=AIzaSyAhdQ4tG2ChLrzOHVHbGpr15Il1GFJ0wkA");
         URL url = new URL(apiUrl);
         URLConnection conn = url.openConnection();
         conn.connect();
@@ -50,10 +56,10 @@ public class YoutubeQuery {
         JSONObject jsonObj = new JSONObject(sb.toString());
         JSONObject jsonObject = jsonObj.getJSONArray("items").getJSONObject(0);
 
+        // The ID of the video
         String vidId = jsonObject.getJSONObject("id").get("videoId").toString();
+        // The Channel of the video
         String vidChannel = jsonObject.getJSONObject("snippet").get("channelTitle").toString();
-
-        System.out.println(vidChannel);
 
         String properUrl = "https://www.youtube.com/watch?v=" + vidId + "&ab_channel=" + formatTitle(vidChannel);
 
@@ -84,12 +90,16 @@ public class YoutubeQuery {
         // Gets the video info of the youtube video
         VideoInfo newVideo = YoutubeDL.getVideoInfo(url);
         String vidTitle = newVideo.title;
-        System.out.println(vidTitle);
+        this.vidTitle = vidTitle;
 
         // Response from the YoutubeDL Query
         YoutubeDLResponse response = YoutubeDL.execute(request);
         // Print the response code(s)
         System.out.println(response.getOut());
+    }
+
+    public String getVidTitle() {
+        return this.vidTitle;
     }
 
     /**
