@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -31,7 +32,10 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </Label>
-            <Button layoutX="365.0" layoutY="442.0" mnemonicParsing="false" onAction="#downloadSong" prefHeight="30.0" prefWidth="120.0" text="Download" />
+            <Button layoutX="353.0" layoutY="434.0" mnemonicParsing="false" onAction="#downloadSong" prefHeight="38.0" prefWidth="159.0" text="Download">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font></Button>
             <Label layoutX="361.0" layoutY="177.0" prefHeight="22.0" prefWidth="129.0" text="Enter a URL">
                <font>
                   <Font size="24.0" />
@@ -40,6 +44,21 @@
             <TextField fx:id="urlText" layoutX="272.0" layoutY="212.0" prefHeight="38.0" prefWidth="307.0" />
             <Label layoutX="269.0" layoutY="160.0" text="Or alternatively..." textFill="#868686" />
             <TextArea fx:id="infoArea" editable="false" layoutX="172.0" layoutY="281.0" prefHeight="130.0" prefWidth="521.0" />
+            <Button layoutX="649.0" layoutY="109.0" mnemonicParsing="false" onAction="#chooseDirectory" prefHeight="40.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../file-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="dirText" layoutX="611.0" layoutY="151.0" prefHeight="18.0" prefWidth="236.0" text="Choose a destination directory" textFill="#7c7b7b">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ProgressIndicator fx:id="progress" layoutX="524.0" layoutY="433.0" prefHeight="38.0" prefWidth="47.0" visible="false" />
          </children>
       </AnchorPane>
    </center>

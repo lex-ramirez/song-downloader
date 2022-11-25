@@ -66,7 +66,7 @@ public class YoutubeQuery {
         return properUrl;
     }
 
-    public void downloadSong(String url) throws YoutubeDLException {
+    public void downloadSong(String url, String path) throws YoutubeDLException {
 
         // Specifies Where YoutubeDL.exe is
         File file = new File("./youtubedl-ffm/youtube-dl.exe");
@@ -74,11 +74,11 @@ public class YoutubeQuery {
         YoutubeDL.setExecutablePath(ytDLPath);
 
         // Gets directory destination directory for installation, get this from user
-        String directory = System.getProperty("C:/Users/lexra/Downloads");
+        String directory = System.getProperty(path);
 
         // Creates request with url and directory
         YoutubeDLRequest request = new YoutubeDLRequest(url, directory);
-        request.setDirectory("C:/Users/lexra/Downloads");
+        request.setDirectory(path);
 
         // Options for command
         request.setOption("ignore-errors");		// --ignore-errors
