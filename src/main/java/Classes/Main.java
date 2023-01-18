@@ -7,9 +7,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ * Main class that loads up the JavaFX stage
+ */
 public class Main extends Application {
 
+    /**
+     * Start method that runs when application is ran
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
 

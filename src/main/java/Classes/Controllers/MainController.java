@@ -5,13 +5,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
+/**
+ * The controller for main.fxml
+ */
 public class MainController {
 
+    /**
+     * The stage for the main page
+     */
     Stage mainStage = new Stage();
 
+    /**
+     * Opens the download page when the user presses "download"
+     * @throws IOException
+     */
     public void openDownload() throws IOException {
         FXMLLoader baseLoader = new FXMLLoader(getClass().getResource("/fxml/download.fxml"));
         Parent root = baseLoader.load();
@@ -22,11 +31,17 @@ public class MainController {
         mainStage.show();
     }
 
+    /**
+     * Opens the about page when the user presses "about"
+     */
     public void openAbout() {
         System.out.println("Not Implemented");
     }
 
-
+    /**
+     * Initializes the main stage
+     * @param stage the current stage
+     */
     public void init(Stage stage) {
         mainStage = stage;
         mainStage.setTitle("Youtube Downloader");

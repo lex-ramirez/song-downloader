@@ -2,9 +2,11 @@ package Classes;
 
 import com.sapher.youtubedl.YoutubeDLException;
 import org.json.JSONException;
-
 import java.io.IOException;
 
+/**
+ * App class that runs the application
+ */
 public class App {
 
     /**

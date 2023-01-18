@@ -11,30 +11,53 @@ import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import org.json.JSONException;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * The controller for download.fxml
+ */
 public class DownloadController {
 
+    /**
+     * The stage for the download page
+     */
     Stage downloadStage = new Stage();
 
+    /**
+     * The filepath for the destination of song
+     */
     String filePath = null;
 
+    /**
+     * The name inputted
+     */
     @FXML
     TextField songName;
 
+    /**
+     * The url inputted
+     */
     @FXML
     TextField urlText;
 
+    /**
+     * The response area when downloading
+     */
     @FXML
     TextArea infoArea;
 
+    /**
+     * The indicator for the filepath
+     */
     @FXML
     Label dirText;
 
+    /**
+     * Progress circle when downloading
+     */
     @FXML
     ProgressIndicator progress;
 
@@ -55,6 +78,7 @@ public class DownloadController {
      */
     public void downloadSeparateThread(String url) {
 
+        // Create a new query
         YoutubeQuery query = new YoutubeQuery();
 
         // Run on separate thread when downloading as to not crash GUI
@@ -79,7 +103,7 @@ public class DownloadController {
                     return;
                 }
 
-                // Update the GUI after the download on another thread, successful
+                // Update the GUI after the download on another thread if successful
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -99,21 +123,25 @@ public class DownloadController {
      * @throws IOException
      */
     public void downloadSong() throws YoutubeDLException, JSONException, IOException {
+
+        // Gets the user inputs (song name or url)
         String title = songName.getText();
         String url = urlText.getText();
 
+        // User must select a directory first
         if (this.filePath == null) {
             infoArea.setText("Please select a Directory!");
             return;
         }
 
-        // URL is highest priority
+        // URL has highest priority (if they input both a song name and url)
         if (!(url.isBlank())) {
             infoArea.setText("Downloading from: " + url);
             progress.setVisible(true);
             downloadSeparateThread(url);
 
         } else {
+            // If they input a song name instead
             if (title.isBlank()) {
                infoArea.setText("Please input a title");
             } else {
@@ -127,6 +155,9 @@ public class DownloadController {
         }
     }
 
+    /**
+     * Sets the filepath as the user's chosen directory
+     */
     public void chooseDirectory() {
         try {
             DirectoryChooser directoryChooser = new DirectoryChooser();
