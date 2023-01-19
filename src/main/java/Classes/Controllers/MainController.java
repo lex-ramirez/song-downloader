@@ -34,8 +34,14 @@ public class MainController {
     /**
      * Opens the about page when the user presses "about"
      */
-    public void openAbout() {
-        System.out.println("Not Implemented");
+    public void openAbout() throws IOException {
+        FXMLLoader baseLoader = new FXMLLoader(getClass().getResource("/fxml/about.fxml"));
+        Parent root = baseLoader.load();
+        AboutController aboutControl = baseLoader.getController();
+        aboutControl.init(mainStage);
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 
     /**

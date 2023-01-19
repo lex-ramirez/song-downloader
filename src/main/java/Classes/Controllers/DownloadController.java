@@ -4,6 +4,9 @@ import Classes.YoutubeQuery;
 import com.sapher.youtubedl.YoutubeDLException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
@@ -165,5 +168,18 @@ public class DownloadController {
             this.filePath = selectedDirectory.getPath();
             dirText.setText(filePath);
         } catch (Exception e) {}
+    }
+
+    /**
+     * Opens the main page again when "back" is pressed
+     */
+    public void openMain() throws IOException {
+        FXMLLoader baseLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+        Parent root = baseLoader.load();
+        MainController mainControl = baseLoader.getController();
+        mainControl.init(downloadStage);
+        Scene scene = new Scene(root);
+        downloadStage.setScene(scene);
+        downloadStage.show();
     }
 }

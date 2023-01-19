@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="486.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Classes.Controllers.AboutController">
+   <center>
+      <AnchorPane prefHeight="494.0" prefWidth="918.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youtube Song Downloader" wrappingWidth="166.26953125">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="61.0" fitWidth="75.0" layoutX="180.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logo-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="388.0" layoutY="74.0" text="About">
+               <font>
+                  <Font name="Century Gothic Bold" size="24.0" />
+               </font>
+            </Label>
+            <Text layoutX="165.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Youtube Song Downloader! This is a personal project of mine that solves my problem" wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="of always needing to download songs from youtube in mp3 format without going on those sketchy" wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="websites every time! This also simplifies the process a lot as you simply only need the title of a video." wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This application was built using Java together with maven. Overall, I used two APIs to achieve the " wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="simplified process of downloading mp3s. The first is the Youtube Data API which I used to search" wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="and form the url of videos given a title. Second, I used a youtubedl java wrapper which can " wrappingWidth="529.13671875" />
+            <Text layoutX="165.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="directly download videos from youtube given a url. I combined these two APIs to simplify the proccess of downloading mp3s, the user simply needs to input a title of the song they want." wrappingWidth="529.13671875" />
+            <Label layoutX="165.0" layoutY="293.0" text="Credits">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Text layoutX="165.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="youtubedl-java API - https://github.com/sapher/youtubedl-java" />
+            <Text layoutX="165.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Youtube Data API - https://developers.google.com/youtube/v3" />
+            <Text layoutX="654.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="https://github.com/lex-ramirez" wrappingWidth="178.767578125" />
+            <Button layoutX="14.0" layoutY="447.0" mnemonicParsing="false" onAction="#openMain" prefHeight="26.0" prefWidth="61.0" text="BACK" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
